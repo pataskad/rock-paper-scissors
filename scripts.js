@@ -18,15 +18,31 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
     // function plays a single round of RPS
     // make player input case insensitive (any combination of rock, paper, scissors.  Everything else seen as null)
-    let playerSelectionRegex = playerSelection.match(/rock|paper|scissors/i);
-    console.log(playerSelectionRegex);
     // compare player choice to computer choice
+    // Paper > Rock, Scissors > Paper, Rock > Scissors
     // return result (winner or loser)
 
-    //console.log(computerSelection);
+    console.log(playerSelection);
+    console.log(computerSelection);
+    //let playerChoiceRegex = /rock|paper|scissors/gi;
+
+
+    if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
+        return "You win! Rock beats scissors";
+    }  else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
+        return "You're a winner! Scissors beats paper";
+    } else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
+        return "Winner, winner! Paper beats rock";
+    } else if (playerSelection === computerSelection) {
+        return "A tie! Try again";
+    } else {
+        return "You lose! :(";
+    }
+    
 }
 
-const playerSelection = 'rock'; //manually input choice (Rock, Paper, or Scissors!)
+const playerSelection = 'Rock'; //manually input choice (Rock, Paper, or Scissors!)
 const computerSelection = computerPlay();
+
 
 console.log(playRound(playerSelection, computerSelection));
