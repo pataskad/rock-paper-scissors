@@ -24,9 +24,13 @@ function playRound(playerSelection, computerSelection) {
 
     console.log(playerSelection);
     console.log(computerSelection);
-    //let playerChoiceRegex = /rock|paper|scissors/gi;
-
-
+    // let playerChoiceRegex = /rock|paper|scissors/gi;
+    // let playerChoiceResult = playerSelection.match(playerChoiceRegex);
+    
+    // Next step, set up regex!
+    // make all inputs lower case? Or completely insensitive? 
+    // (accept any form and translate to standard?)
+    
     if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
         return "You win! Rock beats scissors";
     }  else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
