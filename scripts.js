@@ -33,7 +33,6 @@ function playRound(playerSelection) {
         result = playerWin;
     } else if (playerChoiceStr === computerPlay()) {
         result = playerTie;
-        // count as loss for brevity?
     } else {
         result = playerLoss;
     }
@@ -51,13 +50,13 @@ const playerWin = "You win! Congratulations!";
 const playerTie = "A tie! A loss.... for now";
 
 const playerSelection = prompt("What will you choose; rock, paper, or scissors?", "Rock"); 
-// allow user to input own selection
+// allow user to input own selection on page load
 
 function game() {
     // Play 5 rounds of rock paper scissors
     // track user wins/losses, keep tally
     // report winner if greater than 2 wins, loser if more than 2 losses
-    // do while loop... to get incorporate tie correctly? 
+    // do while loop... to get incorporate tie correctly and to reach best of 5? 
 
     let wins = 0;
     let losses = 0;
