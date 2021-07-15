@@ -66,6 +66,8 @@ function game() {
         console.log(playRound(playerSelection));
         if (result === playerWin) {
             wins += 1;
+        } else if (result === playerTie) {
+            continue;
         } else {
             losses += 1;
         }
@@ -76,6 +78,8 @@ function game() {
     // evaluate if the winner won or lost the game
     if (wins > losses) {
         return "Congratulations, you won the game!";
+    } else if (wins === losses) {
+        return "Tie game! Play again to find out who wins...";
     } else {
         return "Oh no, the computer wins this one!";
     }
