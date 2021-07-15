@@ -11,6 +11,7 @@ function computerPlay() {
     // randomly return result from computerOptions array
     // assign random choice to randomSelect variable
     // return randomized selection
+
     let randomSelect = Math.floor(Math.random() * computerOptions.length);
     return computerOptions[randomSelect];
 }
@@ -20,10 +21,9 @@ function playRound(playerSelection) {
     // compare player choice to computer choice
     // Paper > Rock, Scissors > Paper, Rock > Scissors
     // return result (winner, loser, or tie)
+
     let playerChoiceStr = playerSelection.toLowerCase(); 
     // filters playerSelection to lower case allowing case insensitivity
-    let result = ''; 
-    // declare result variable to store round results
 
     if (playerChoiceStr === 'rock' && computerPlay() === 'scissors') {
         result = playerWin;
@@ -37,18 +37,21 @@ function playRound(playerSelection) {
     } else {
         result = playerLoss;
     }
-    
+
     return result;
     // using computerPlay function to grab new computer choice with each round
 }
+
+let result = '';
+// declare result variable to store round results
 
 // possible player results
 const playerLoss = "You lose! :(";
 const playerWin = "You win! Congratulations!";
 const playerTie = "A tie! A loss.... for now";
 
-const playerSelection = 'rock'; //manually input choice (Rock, Paper, or Scissors!)
-//const computerSelection = computerPlay();  // not needed, need to get new computer choice each round
+const playerSelection = prompt("What will you choose; rock, paper, or scissors?", "Rock"); 
+// allow user to input own selection
 
 function game() {
     // Play 5 rounds of rock paper scissors
@@ -61,13 +64,20 @@ function game() {
     for (let i = 0; i < 5; i++) {
         playRound(playerSelection);
         console.log(playRound(playerSelection));
-        if (playerWin == "You win! Congratulations!") {
+        if (result === playerWin) {
             wins += 1;
         } else {
             losses += 1;
         }
         console.log(wins);
         console.log(losses);
+    }
+
+    // evaluate if the winner won or lost the game
+    if (wins > losses) {
+        return "Congratulations, you won the game!";
+    } else {
+        return "Oh no, the computer wins this one!";
     }
 }
 
