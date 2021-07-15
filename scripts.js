@@ -7,11 +7,11 @@ function computerPlay() {
     let randomSelect = Math.floor(Math.random() * (4 - 1) + 1);
 
     if (randomSelect === 1) {
-        return 'Rock';
+        return 'rock';
     } else if (randomSelect === 2) {
-        return 'Paper';
+        return 'paper';
     } else if (randomSelect === 3) {
-        return 'Scissors';
+        return 'scissors';
     }
 }
 
@@ -20,24 +20,19 @@ function playRound(playerSelection, computerSelection) {
     // make player input case insensitive (any combination of rock, paper, scissors.  Everything else seen as null)
     // compare player choice to computer choice
     // Paper > Rock, Scissors > Paper, Rock > Scissors
-    // return result (winner or loser)
+    // return result (winner, loser, or tie)
 
-    console.log(playerSelection);
+    let playerChoiceStr = playerSelection.toLowerCase();
+    console.log(playerChoiceStr); // player selection after filtering to lower case
     console.log(computerSelection);
-    // let playerChoiceRegex = /rock|paper|scissors/gi;
-    // let playerChoiceResult = playerSelection.match(playerChoiceRegex);
-    
-    // Next step, set up regex!
-    // make all inputs lower case? Or completely insensitive? 
-    // (accept any form and translate to standard?)
-    
-    if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
+
+    if (playerChoiceStr === 'rock' && computerSelection === 'scissors') {
         return "You win! Rock beats scissors";
-    }  else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
-        return "You're a winner! Scissors beats paper";
-    } else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
+    }  else if (playerChoiceStr === 'scissors' && computerSelection === 'paper') {
+        return "You're a winner! Scissors cuts paper";
+    } else if (playerChoiceStr === 'paper' && computerSelection === 'rock') {
         return "Winner, winner! Paper beats rock";
-    } else if (playerSelection === computerSelection) {
+    } else if (playerChoiceStr === computerSelection) {
         return "A tie! Try again";
     } else {
         return "You lose! :(";
@@ -45,7 +40,7 @@ function playRound(playerSelection, computerSelection) {
     
 }
 
-const playerSelection = 'Rock'; //manually input choice (Rock, Paper, or Scissors!)
+const playerSelection = 'sCisSors'; //manually input choice (Rock, Paper, or Scissors!)
 const computerSelection = computerPlay();
 
 
