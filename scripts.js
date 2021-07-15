@@ -1,47 +1,72 @@
 "use strict";
 
-function computerPlay() {
-    // randomly return number between 1 and 3
-    // assign 'Rock', 'Paper' and 'Scissors' to corresponding 1-3
-    // return randomized selection
-    let randomSelect = Math.floor(Math.random() * (4 - 1) + 1);
 
-    if (randomSelect === 1) {
-        return 'rock';
-    } else if (randomSelect === 2) {
-        return 'paper';
-    } else if (randomSelect === 3) {
-        return 'scissors';
-    }
+let computerOptions = [
+    'rock',
+    'paper',
+    'scissors'
+]
+
+function computerPlay() {
+    // randomly return result from computerOptions array
+    // assign random choice to randomSelect variable
+    // return randomized selection
+    let randomSelect = Math.floor(Math.random() * computerOptions.length);
+    return computerOptions[randomSelect];
 }
 
-function playRound(playerSelection, computerSelection) {
-    // function plays a single round of RPS
-    // make player input case insensitive (any combination of rock, paper, scissors.  Everything else seen as null)
+function playRound(playerSelection) {
+    // function plays a single round of rock paper scissors
     // compare player choice to computer choice
     // Paper > Rock, Scissors > Paper, Rock > Scissors
     // return result (winner, loser, or tie)
 
-    let playerChoiceStr = playerSelection.toLowerCase();
-    console.log(playerChoiceStr); // player selection after filtering to lower case
-    console.log(computerSelection);
+    let playerChoiceStr = playerSelection.toLowerCase(); 
+    // filters playerSelection to lower case allowing case insensitivity
 
-    if (playerChoiceStr === 'rock' && computerSelection === 'scissors') {
-        return "You win! Rock beats scissors";
-    }  else if (playerChoiceStr === 'scissors' && computerSelection === 'paper') {
-        return "You're a winner! Scissors cuts paper";
-    } else if (playerChoiceStr === 'paper' && computerSelection === 'rock') {
-        return "Winner, winner! Paper beats rock";
-    } else if (playerChoiceStr === computerSelection) {
-        return "A tie! Try again";
+    if (playerChoiceStr === 'rock' && computerPlay() === 'scissors') {
+        return playerWin;
+    }  else if (playerChoiceStr === 'scissors' && computerPlay() === 'paper') {
+        return playerWin;
+    } else if (playerChoiceStr === 'paper' && computerPlay() === 'rock') {
+        return playerWin;
+    } else if (playerChoiceStr === computerPlay()) {
+        return playerTie; // count as loss for brevity?
     } else {
-        return "You lose! :(";
+        return playerLoss;
     }
     
+    // using computerPlay function to grab new computer choice with each round
 }
 
-const playerSelection = 'sCisSors'; //manually input choice (Rock, Paper, or Scissors!)
-const computerSelection = computerPlay();
+// possible player results
+const playerLoss = "You lose! :(";
+const playerWin = "You win! Congratulations!";
+const playerTie = "A tie! A loss.... for now";
+
+const playerSelection = 'rock'; //manually input choice (Rock, Paper, or Scissors!)
+//const computerSelection = computerPlay();  // not needed, need to get new computer choice each round
+
+function game() {
+    // Play 5 rounds of rock paper scissors
+    // track user wins/losses, keep tally
+    // report winner if greater than 2 wins, loser if more than 2 losses
+    // do while loop... to get incorporate tie correctly? 
+
+    let wins = 0;
+    let losses = 0;
+    for (let i = 0; i < 5; i++) {
+        playRound(playerSelection);
+        console.log(playRound(playerSelection));
+        if (playerWin == "You win! Congratulations!") {
+            wins += 1;
+        } else {
+            losses += 1;
+        }
+        console.log(wins);
+        console.log(losses);
+    }
+}
 
 
-console.log(playRound(playerSelection, computerSelection));
+//console.log(playRound(playerSelection, computerSelection));
