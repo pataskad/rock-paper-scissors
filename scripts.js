@@ -20,22 +20,25 @@ function playRound(playerSelection) {
     // compare player choice to computer choice
     // Paper > Rock, Scissors > Paper, Rock > Scissors
     // return result (winner, loser, or tie)
-
     let playerChoiceStr = playerSelection.toLowerCase(); 
     // filters playerSelection to lower case allowing case insensitivity
+    let result = ''; 
+    // declare result variable to store round results
 
     if (playerChoiceStr === 'rock' && computerPlay() === 'scissors') {
-        return playerWin;
+        result = playerWin;
     }  else if (playerChoiceStr === 'scissors' && computerPlay() === 'paper') {
-        return playerWin;
+        result = playerWin;
     } else if (playerChoiceStr === 'paper' && computerPlay() === 'rock') {
-        return playerWin;
+        result = playerWin;
     } else if (playerChoiceStr === computerPlay()) {
-        return playerTie; // count as loss for brevity?
+        result = playerTie;
+        // count as loss for brevity?
     } else {
-        return playerLoss;
+        result = playerLoss;
     }
     
+    return result;
     // using computerPlay function to grab new computer choice with each round
 }
 
