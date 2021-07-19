@@ -29,11 +29,11 @@ function checkWinner() {
     let finalScore = '';
     if (wins == 5) {
         resetGame();
-        finalResult.style.backgroundColor = 'Green';
+        body.style.backgroundColor = 'green';
         finalScore = "Congratulations, you won the match!";
     } else if (losses == 5) {
         resetGame(); // resets score to 0-0
-        finalResult.style.backgroundColor = 'Red';
+        body.style.backgroundColor = 'firebrick';
         finalScore = "You lost the match! Maybe next time...";
     }
     finalResult.textContent = finalScore;
@@ -45,6 +45,7 @@ function resetGame() {
     lossCount.textContent = losses;
     finalResult.textContent = '';
     results.textContent = '';
+    body.style.backgroundColor = '#3937b479';
 }
 // named function to reduce repetitive code for button listeners
 function playerSelects(e) {
@@ -54,7 +55,7 @@ function playerSelects(e) {
     if (result === playerWin) {
         wins += 1;
     } else if (result === playerTie) {
-        return;
+        result = playerTie;
     } else {
         losses += 1;
     }
@@ -84,6 +85,8 @@ lossCount.textContent = losses;
 
 const results = document.querySelector('#results'); // results div
 const finalResult = document.querySelector('#final-result'); //final-result node
+
+const body = document.querySelector('body'); // node to support changing background colors
 
 // button element nodes
 const rockBtn = document.querySelector('#rock');
