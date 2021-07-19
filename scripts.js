@@ -24,69 +24,32 @@ function playRound(playerSelection) {
         result = playerLoss;
     }
     return result;
-    // using computerPlay function to grab new computer choice with each round
 }
-
-let result = '';
-// declare result variable to store round results
-
-// possible player results
-const playerLoss = "You Lose!";
-const playerWin = "You Win!";
-const playerTie = "A Tie!";
-
-let playerSelection = ''; //prompt("What will you choose; rock, paper, or scissors?", "Rock"); 
-// allow user to input own selection on page load
-
-function game() {
-    // Play 5 rounds of rock paper scissors
-    // track user wins/losses, keep tally
-    // report winner if greater than 2 wins, loser if more than 2 losses
-    // do while loop... to get incorporate tie correctly and to reach best of 5? 
-
-    // let wins = 0;
-    // let losses = 0;
-    // for (let i = 0; i < 5; i++) {
-    //     playRound(playerSelection);
-    //     console.log(playRound(playerSelection));
-    //     if (result === playerWin) {
-    //         wins += 1;
-    //     } else if (result === playerTie) {
-    //         continue;
-    //     } else {
-    //         losses += 1;
-    //     }
-    //     console.log(wins);
-    //     console.log(losses);
-    // }
-
-    // evaluate if the winner won or lost the game
-    if (wins > losses) {
-        return "Congratulations, you won the game!";
-    } else if (wins === losses) {
-        return "Tie game! Play again to find out who wins...";
-    } else {
-        return "Oh no, the computer wins this one!";
+function checkWinner() {
+    let finalScore = '';
+    if (wins == 5) {
+        resetGame();
+        finalResult.style.backgroundColor = 'Green';
+        finalScore = "Congratulations, you won the match!";
+    } else if (losses == 5) {
+        resetGame(); // resets score to 0-0
+        finalResult.style.backgroundColor = 'Red';
+        finalScore = "You lost the match! Maybe next time...";
     }
+    finalResult.textContent = finalScore;
 }
-
-// results div
-const results = document.querySelector('#results');
-
-// default score settings
-let wins = 0;
-let losses = 0;
-// score tally nodes
-const winCount = document.querySelector('.wins');
-const lossCount = document.querySelector('.losses');
-// initializes 0/0 as first score represented before counting any wins/losses
-winCount.textContent = wins;
-lossCount.textContent = losses;
+function resetGame() {
+    wins = 0;
+    losses = 0;
+    winCount.textContent = wins;
+    lossCount.textContent = losses;
+    finalResult.textContent = '';
+    results.textContent = '';
+}
 // named function to reduce repetitive code for button listeners
 function playerSelects(e) {
-    playerSelection = e.target.id;
+    playerSelection = e.target.id; // this works because the id is equal to the input parameter needed
     playRound(playerSelection);
-    results.textContent = result;
 
     if (result === playerWin) {
         wins += 1;
@@ -95,15 +58,40 @@ function playerSelects(e) {
     } else {
         losses += 1;
     }
+
+    results.textContent = result;
     winCount.textContent = wins;
     lossCount.textContent = losses;
+
+    checkWinner(); // helper function to evaluate winner/loser
 }
+
+let result = ''; // declare result variable to store round results
+let playerSelection = ''; // initialize player selection
+
+const playerLoss = "You Lose!";
+const playerWin = "You Win!";
+const playerTie = "A Tie!";
+
+let wins = 0; // default scores
+let losses = 0;
+
+const winCount = document.querySelector('.wins'); // score tally nodes
+const lossCount = document.querySelector('.losses');
+// initializes 0/0 as first score represented before counting any wins/losses
+winCount.textContent = wins;
+lossCount.textContent = losses;
+
+const results = document.querySelector('#results'); // results div
+const finalResult = document.querySelector('#final-result'); //final-result node
 
 // button element nodes
 const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
 const scissorsBtn = document.querySelector('#scissors');
+const resetBtn = document.querySelector('#reset-all'); // reset!
 // button event listeners
 rockBtn.addEventListener('click', playerSelects);
 paperBtn.addEventListener('click', playerSelects);
 scissorsBtn.addEventListener('click', playerSelects);
+resetBtn.addEventListener('click', resetGame); // reset!

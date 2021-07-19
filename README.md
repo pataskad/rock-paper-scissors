@@ -14,4 +14,4 @@ Index.html for structure/outline, scripts.js linked at the bottom of html page. 
 
 ***GUI Update***
 
-The RPS game now include a simplified UI for a user to interact with instead of the conventional console through DevTools/inspector mode.  Using the power of Javascript nodes and event method listeners, this game gives users the opportunity to select a an option (r, p, or s) and display the round result, as well as a running tally of wins and losses.  Once the user or computer reaches 5 the game will display a winner or loser message depending on the result of the game.  Enjoy!
+The RPS game now includes a simplified UI for a user to interact with instead of the conventional console through DevTools/inspector mode.  Using the power of Javascript nodes and event method listeners, this game gives users the opportunity to select a an option (r, p, or s) and display the round result, as well as a running tally of wins and losses.  Once the user or computer reaches 5 the game will display a winner or loser message depending on the result of the game.  Enjoy!
