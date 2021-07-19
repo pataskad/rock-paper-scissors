@@ -12,6 +12,6 @@ To view this project in a live environment, I recommend using the Live Server ex
 
 Index.html for structure/outline, scripts.js linked at the bottom of html page.  Scripts.js includes skills and concepts such as Regex matching to parse player selection entry case insensitivity as well as preventing unwanted game choice entries. The game includes multiple if/else style logic statements to properly calculate and account for wins/losses as well as evaluating when the player wins, as well as when the player loses.
 
-***For the Future***
+***GUI Update***
 
-This project will eventually evolve into a game that can be played outside of the console, built with a more thoughtout GUI in the near future.  For now, this project serves the purpose of laying the groundwork and fundamental building blocks that will allow for a more concrete understanding of each function, and more importantly logic, before continuing to lay out and prop up a working GUI to go on top of it for users to interact with.
+The RPS game now include a simplified UI for a user to interact with instead of the conventional console through DevTools/inspector mode.  Using the power of Javascript nodes and event method listeners, this game gives users the opportunity to select a an option (r, p, or s) and display the round result, as well as a running tally of wins and losses.  Once the user or computer reaches 5 the game will display a winner or loser message depending on the result of the game.  Enjoy!

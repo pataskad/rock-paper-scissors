@@ -3,10 +3,28 @@
     <head>
         <meta charset="UTF-8">
         <title>Rock Paper Scissors</title>
+        <script src="scripts.js" defer></script>
     </head>
 
     <body>
 
-        <script src="scripts.js"></script>
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+
+        <!--Displays final game results (first to 5) and running tally of current score-->
+        <div class="game-scoring">
+            <h3>Round Result:</h3>
+            <div id="results"></div>
+            <div class="tally-wins">
+                <h3>Wins:</h3>
+                <div class="wins"></div>
+            </div>
+            <div class="tally-losses">
+                <h3>Losses:</h3>
+                <div class="losses"></div>
+            </div>
+        </div>
+
     </body>
 </html>
