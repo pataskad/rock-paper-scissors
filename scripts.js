@@ -32,7 +32,7 @@ function checkWinner() {
         body.style.backgroundColor = 'green';
         finalScore = "Congratulations, you won the match!";
     } else if (losses == 5) {
-        resetGame(); // resets score to 0-0
+        resetGame();
         body.style.backgroundColor = 'firebrick';
         finalScore = "You lost the match! Maybe next time...";
     }
@@ -67,34 +67,34 @@ function playerSelects(e) {
     checkWinner(); // helper function to evaluate winner/loser
 }
 
-let result = ''; // declare result variable to store round results
-let playerSelection = ''; // initialize player selection
+let result = '';
+let playerSelection = '';
 
 const playerLoss = "You Lose!";
 const playerWin = "You Win!";
 const playerTie = "A Tie!";
 
-let wins = 0; // default scores
+let wins = 0;
 let losses = 0;
 
-const winCount = document.querySelector('.wins'); // score tally nodes
+const winCount = document.querySelector('.wins');
 const lossCount = document.querySelector('.losses');
 // initializes 0/0 as first score represented before counting any wins/losses
 winCount.textContent = wins;
 lossCount.textContent = losses;
 
-const results = document.querySelector('#results'); // results div
-const finalResult = document.querySelector('#final-result'); //final-result node
+const results = document.querySelector('#results');
+const finalResult = document.querySelector('#final-result');
 
-const body = document.querySelector('body'); // node to support changing background colors
+const body = document.querySelector('body');
 
 // button element nodes
 const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
 const scissorsBtn = document.querySelector('#scissors');
-const resetBtn = document.querySelector('#reset-all'); // reset!
+const resetBtn = document.querySelector('#reset-all');
 // button event listeners
 rockBtn.addEventListener('click', playerSelects);
 paperBtn.addEventListener('click', playerSelects);
 scissorsBtn.addEventListener('click', playerSelects);
-resetBtn.addEventListener('click', resetGame); // reset!
+resetBtn.addEventListener('click', resetGame);
